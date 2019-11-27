@@ -95,7 +95,7 @@
       const phoneElement = document.querySelector('.phone');
       socket.on('newOri', ({alpha, beta, gamma}) => {
         
-            let yaw,pitch,roll;
+            var yaw,pitch,roll;
 
             // Convert degrees to radians
             var alphaRad = alpha * (Math.PI / 180);
