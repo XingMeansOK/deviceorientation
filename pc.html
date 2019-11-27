@@ -93,6 +93,15 @@
       // Please change the ip based on your server address :)
       const socket = io('https://ff0vm.sse.codesandbox.io');
       const phoneElement = document.querySelector('.phone');
+      var alphaA=[];
+      var betaA=[];
+      var gammaA=[];
+      var yawA=[];
+      var pitchA=[];
+      var rollA=[];
+      
+      var count = 0;
+      
       socket.on('newOri', ({alpha, beta, gamma}) => {
         
             var yaw,pitch,roll;
@@ -153,6 +162,16 @@
             roll *= 180 / Math.PI;
             
             phoneElement.style.transform = `rotateY(${ - yaw}deg) rotateX(${- pitch}deg) rotateZ(${roll}deg)`;
+        
+            if(count<200) {
+                alphaA.push(alpha);
+                betaA.push(beta);
+                gammaA.push(gamma);
+                yawA.push(yaw);
+                pitchA.push(pitch);
+                rollA.push(roll);
+            }
+
       })
     </script>
   </body>
